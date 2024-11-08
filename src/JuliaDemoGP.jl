@@ -10,6 +10,7 @@ module JuliaDemoGP
 
     include("toydata.jl") # synthetic data for demonstrating gp fitting
 
-    export RBF, evaluatekernel, numparams, calculatecovariance
+    export GP, loglikelihood, numparams
+    export RBF, evaluatekernel , calculatecovariance, toydata
 
 end
