@@ -32,23 +32,23 @@ end
 
 numparams(kernel::RBF) = 2
 
-calculatecovariance(kernel<:AbstractKernel, x, y; θ) = [kernel(xᵢ, yᵢ; θ) for xᵢ in x, yᵢ in y]
+calculatecovariance(kernel::AbstractKernel, x, y; θ) = [kernel(xᵢ, yᵢ; θ) for xᵢ in x, yᵢ in y]
 
-struct OU <:AbstractKernel 
+# struct OU <:AbstractKernel 
     
-    distance::Metric
+#     distance::Metric
 
-end
+# end
 
-OU() = OU(Distances.Euclidean())
+# OU() = OU(Distances.Euclidean())
 
 
-function (kernel::OU)(x, y; θ) 
+# function (kernel::OU)(x, y; θ) 
 
-    d = evaluate(kernel.distance, x, y)
+#     d = evaluate(a.distance, x, y)
 
-    θ[1]^2*exp(-d /  θ[2]^2)
+#     θ[1]^2*exp(-d /  θ[2]^2)
 
-end
+# end
 
-numparams(kernel::OU) = 2
+# numparams(kernel::OU) = 2
