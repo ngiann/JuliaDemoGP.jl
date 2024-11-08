@@ -16,7 +16,7 @@ function (gp::GP)(params)
     
     θ, σ = params[1:numparams(gp.kernel)], params[end]
 
-    K = calculatecovariance(gp.kernel, gp.x, gp.x, θ) + σ^2*I + 1e-8*I # add jitter
+    K = calculatecovariance(gp.kernel, gp.x, gp.x, θ = θ) + σ^2*I + 1e-8*I # add jitter
     
     MvNormal(zeros(length(gp.x)), K)
     
@@ -31,11 +31,11 @@ function (gp::GP)(params, xtest)
 
     θ, σ = params[1:2], params[3]
 
-    Kxx = calculatecovariance(gp.kernel, gp.x, gp.x, θ) + σ^2*I + 1e-8*I # add jitter
+    Kxx = calculatecovariance(gp.kernel, gp.x, gp.x, θ = θ) + σ^2*I + 1e-8*I # add jitter
 
-    Kx⭑x = calculatecovariance(gp.kernel, xtest, gp.x, θ)
+    Kx⭑x = calculatecovariance(gp.kernel, xtest, gp.x, θ = θ)
 
-    Kx⭑x⭑ = calculatecovariance(gp.kernel, xtest, xtest, θ)
+    Kx⭑x⭑ = calculatecovariance(gp.kernel, xtest, xtest, θ = θ)
 
     μpred = Kx⭑x * (Kxx \ gp.y)
     
