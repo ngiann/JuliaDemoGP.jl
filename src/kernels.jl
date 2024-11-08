@@ -13,9 +13,9 @@ function RBF() # constructor
 end
 
 
-function evaluatekernel(a::RBF, x, y; θ)
+function evaluatekernel(kernel::RBF, x, y; θ)
    
-    d = evaluate(a.distance, x, y)
+    d = evaluate(kernel.distance, x, y)
 
     θ[1]^2*exp(-d^2 /  θ[2]^2)
 
