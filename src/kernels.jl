@@ -45,7 +45,7 @@ calculatecovariance(kernel::AbstractKernel, x, y; θ) = [kernel(xᵢ, yᵢ; θ) 
 
 # function (kernel::OU)(x, y; θ) 
 
-#     d = evaluate(a.distance, x, y)
+#     d = evaluate(kernel.distance, x, y)
 
 #     θ[1]^2*exp(-d /  θ[2]^2)
 
