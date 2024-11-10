@@ -32,7 +32,7 @@ end
 
 numparams(kernel::RBF) = 2
 
-calculatecovariance(kernel::AbstractKernel, x, y; θ) = [kernel(xᵢ, yᵢ; θ) for xᵢ in x, yᵢ in y]
+calculatecovariance(kernel::AbstractKernel, X, Y; θ) = [kernel(xᵢ, yᵢ; θ) for xᵢ in X, yᵢ in Y]
 
 # struct OU <:AbstractKernel 
     
